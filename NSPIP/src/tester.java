@@ -43,6 +43,13 @@ public class tester
 			}
 			else if(menuInput.equals("2")) {
 				//prints out current watchlist if exist
+				
+				// if you want to add watch list
+					//add company name to watchlist class
+				// else if you want to delete
+					//delete company name to watchlist class	
+				// else if you want to see your watchlist
+					//call output class
 			}
 			else if(menuInput.equals("3")) {
 				//ask user for terms to explain
