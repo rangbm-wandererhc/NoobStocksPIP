@@ -17,52 +17,49 @@ public class tester
 	{
 		//declare scanner and objects
 		Scanner in = new Scanner(System.in);
-		watchlistxpath find = new watchlistxpath();
 		
 		//loop asks
 		boolean cont = true;
 		while(cont)
 		{
 			//ask for menu
-			System.out.println("Menu");
+			System.out.println("\tMenu");
 			System.out.println("=====================");
-			System.out.print("Enter '1' to search data for a new company,\n"
+			System.out.print("Enter\n"
+					+ "'1' to search data for a new company\n"
 					+ "'2' to pull up your custom watchlist, or\n"
-					+ "'3' to pull up the help center: " );
+					+ "'3' to pull up the help center,\n"
+					+ "'4' to pull up cryptocurrency,\n"
+					+ "'5' for recommendations, \n"
+					+ "'6' to quit" );
+			System.out.print("\ninput: ");
 			menuInput = in.next();
 			
+			if(menuInput.equals("1")) {
+				//ask user for company
+				
+				//call stockcalc in output class
+				//gives company name to output class
+			}
+			else if(menuInput.equals("2")) {
+				//prints out current watchlist if exist
+			}
+			else if(menuInput.equals("3")) {
+				//ask user for terms to explain
+				
+				//gives term to output class to print
+			}
+			else if(menuInput.equals("4")) {
+				//prints cryptocurrency values through output class
+			}
+			else if(menuInput.equals("5")) {
+				//prints recommendations thorhghosaodf output class
+			}
+			else if(menuInput.equals("6")) {
+				
+			}
 			//search menu
-			if(menuInput.trim().equalsIgnoreCase("1"))
-			{
-				System.out.println("\nEnter the company name to calculate stocks for.");
-				System.out.print("Type 'quit' to exit the program: ");
-				comp = in.nextLine();
-				comp = in.nextLine();
-				
-				//search google
-				if(comp.equalsIgnoreCase("quit"))
-					cont = false;
-				else
-					find.search(comp);
-				
-				//print basic data
-				output.printBasic(find);
-				watchlist.storeData(comp);
-				find.close();
-			}
 			
-			//watchlist menu
-			else if(menuInput.trim().equalsIgnoreCase("2"))
-			{
-				System.out.println("Your Watchlist:");
-			}
-			
-			//help menu
-			else if(menuInput.trim().equalsIgnoreCase("3"))
-			{
-				learningcenter learn = new learningcenter();
-				learn.chooseTopic();
-			}
 		}	
 	}
 }
