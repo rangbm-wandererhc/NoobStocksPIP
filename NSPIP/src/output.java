@@ -43,7 +43,7 @@ public class output
 	
 	//no parameter
 	public static void printrecommendation() {
-		System.out.print("\n\nLoading...\n");
+		System.out.print("\nLoading...\n\n");
 		//most actives
 		ArrayList<ArrayList> mostactives = new ArrayList<ArrayList>();
 		ArrayList<String> activecompany = new ArrayList<String>();
@@ -56,17 +56,16 @@ public class output
 		activechange = mostactives.get(2);		
 		activeperchange = mostactives.get(3);	
 		
-		
-		System.out.printf("%10s\n\n","Most actives");
-
-		System.out.printf("%5s %10s %17s %25s \n", "Company", "Price", "Change", "Percent Change");
+		System.out.printf("%-45s %12s %20s %25s \n", "Company", "Price", "Change", "Percent Change");
+		System.out.println("============================================================================================================");
+		System.out.println("Most actives: ");
 		for(int i = 0 ; i<activecompany.size(); i++) {
-			System.out.printf("%5s %10s %17s %25s \n", activecompany.get(i), activeprice.get(i), activechange.get(i), activeperchange.get(i));
+			System.out.printf("%-45s %12s %20s %25s \n", activecompany.get(i), activeprice.get(i), activechange.get(i), activeperchange.get(i));
 			
 		}
 		
 		//top gainers
-		System.out.println("Top Gainers");
+		System.out.println("\nTop Gainers:");
 		ArrayList<ArrayList> gainers = new ArrayList<ArrayList>();
 		ArrayList<String> gaincompany = new ArrayList<String>();
 		ArrayList<String> gainprice = new ArrayList<String>();
@@ -79,15 +78,11 @@ public class output
 		gainperchange = gainers.get(3);	
 		
 		for(int i = 0 ; i<gaincompany.size(); i++) {
-			System.out.printf("%s \t",gaincompany.get(i));
-			System.out.printf("%s \t",gainprice.get(i));
-			System.out.printf("%s \t",gainchange.get(i));
-			System.out.printf("%s \t",gainperchange.get(i));
-			System.out.println();
+			System.out.printf("%-45s %12s %20s %25s \n", gaincompany.get(i), gainprice.get(i), gainchange.get(i), gainperchange.get(i));
 		}
 		
 		//top losers
-		System.out.println("Top Losers");
+		System.out.println("\nTop Losers: ");
 		ArrayList<ArrayList> losers = new ArrayList<ArrayList>();
 		ArrayList<String> losecompany = new ArrayList<String>();
 		ArrayList<String> loseprice = new ArrayList<String>();
@@ -100,11 +95,7 @@ public class output
 		loseperchange = losers.get(3);	
 		
 		for(int i = 0 ; i<losecompany.size(); i++) {
-			System.out.printf("%s \t",losecompany.get(i));
-			System.out.printf("%s \t",loseprice.get(i));
-			System.out.printf("%s \t",losechange.get(i));
-			System.out.printf("%s \t",loseperchange.get(i));
-			System.out.println();
+			System.out.printf("%-45s %12s %20s %25s \n", losecompany.get(i), loseprice.get(i), losechange.get(i), loseperchange.get(i));
 		}
 	}
 	
