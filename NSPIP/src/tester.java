@@ -7,6 +7,7 @@
  */
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class tester
@@ -24,7 +25,7 @@ public class tester
 		{
 			//ask for menu
 			System.out.println("\n\tMenu");
-			System.out.println("=====================");
+			System.out.println("==========================================");
 			System.out.print("Please enter one of the following options:\n"
 					+ "'1' to search data for a new company\n"
 					+ "'2' to pull up your custom watchlist, or\n"
@@ -35,34 +36,32 @@ public class tester
 			System.out.print("\nInput: ");
 			menuInput = in.next();
 			
-			if(menuInput.equals("1")) {
+			if(menuInput.equals("1"))
+			{
 				System.out.print("\nEnter a company to get data for: ");
 				comp = in.nextLine();
 				comp = in.nextLine();
 				
+				//print out basic data
 				output.printstockcalc(comp);
-			}
-			else if(menuInput.equals("2")) {
-				//prints out current watchlist if exist
 				
-				// if you want to add watch list
-					//add company name to watchlist class
-				// else if you want to delete
-					//delete company name to watchlist class	
+				//watchlist
+				
+			}
+			else if(menuInput.equals("2"))
+			{				
+				
 				// else if you want to see your watchlist
 					//call output class
 			}
 			else if(menuInput.equals("3")) {
-				//ask user for terms to explain
+				output.printlearningcenter();
 				
-				//gives term to output class to print
 			}
 			else if(menuInput.equals("4")) {
-				//prints cryptocurrency values through output class
 				output.printcrypt();
 			}
 			else if(menuInput.equals("5")) {
-				//prints recommendations thorhghosaodf output class
 				output.printrecommendation();
 			}
 			else if(menuInput.equals("6")) {
@@ -70,6 +69,6 @@ public class tester
 			}
 			//search menu
 			
-		}	
+		}			
 	}
 }
