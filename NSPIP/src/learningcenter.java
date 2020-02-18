@@ -26,10 +26,9 @@ public class learningcenter
 		terms.add("prev close");
 		terms.add("52-wk high");
 		terms.add("52-wk low");
-		newInput = "";
 	}
 	
-	public void chooseTopic()
+	public String choose()
 	{
 		Scanner in = new Scanner(System.in);
 		
@@ -42,42 +41,43 @@ public class learningcenter
 			System.out.print(" " + n + ",");
 		}
 		
-		boolean cont = true;
-		while(cont)
+		System.out.print("\nEnter one of the terms to be explained. \nType 'quit' to quit: ");
+		input = in.nextLine();
+		return input;
+		
+	}
+	
+	public String chooseTopic(String input)
+	{
+		//check input validity
+		newInput = input.trim();
+		for(int x = 0; x < terms.size(); x++)
 		{
-			System.out.print("\nEnter one of the terms to be explained. \nType 'quit' to quit: ");
-			input = in.nextLine();
-			System.out.println("");
-			
-			//check input validity
-			newInput = input.trim();
-			for(int n = 0; n < terms.size(); n++)
+			if(input.equalsIgnoreCase(terms.get(x)))
 			{
-				if(input.equalsIgnoreCase(terms.get(n)))
-				{
-					if(n == 0)
-						explainOpen();
-					else if(n == 1)
-						explainHigh();
-					else if(n == 2)
-						explainLow();
-					else if(n == 3)
-						explainMarkCap();
-					else if(n == 4)
-						explainRatio();
-					else if(n == 5)
-						explainDiv();
-					else if(n == 6)
-						explainClose();
-					else if(n == 7)
-						explainWkHighLow();
-				}
+				if(x == 0)
+					return explainOpen();
+				else if(x == 1)
+					return explainHigh();
+				else if(x == 2)
+					return explainLow();
+				else if(x == 3)
+					return explainMarkCap();
+				else if(x == 4)
+					return explainRatio();
+				else if(x == 5)
+					return explainDiv();
+				else if(x == 6)
+					return explainClose();
+				else if(x == 7)
+					return explainWkHighLow();
 			}
-			if(input.equalsIgnoreCase("Quit"))
-				cont = false;
-			else
-				System.out.println("Invalid input.");
 		}
+		if(input.equalsIgnoreCase("Quit"))
+		{
+			return "false";
+		}
+		return "Error.";
 	}
 	
 	public String explainOpen()
