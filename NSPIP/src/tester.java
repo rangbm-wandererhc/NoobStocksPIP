@@ -23,23 +23,24 @@ public class tester
 		while(cont)
 		{
 			//ask for menu
-			System.out.println("\tMenu");
+			System.out.println("\n\tMenu");
 			System.out.println("=====================");
-			System.out.print("Enter\n"
+			System.out.print("Please enter one of the following options:\n"
 					+ "'1' to search data for a new company\n"
 					+ "'2' to pull up your custom watchlist, or\n"
 					+ "'3' to pull up the help center,\n"
 					+ "'4' to pull up cryptocurrency,\n"
 					+ "'5' for recommendations, \n"
 					+ "'6' to quit" );
-			System.out.print("\ninput: ");
+			System.out.print("\nInput: ");
 			menuInput = in.next();
 			
 			if(menuInput.equals("1")) {
-				//ask user for company
+				System.out.print("\nEnter a company to get data for: ");
+				comp = in.nextLine();
+				comp = in.nextLine();
 				
-				//call stockcalc in output class
-				//gives company name to output class
+				output.printstockcalc(comp);
 			}
 			else if(menuInput.equals("2")) {
 				//prints out current watchlist if exist
