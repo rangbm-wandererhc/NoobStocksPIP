@@ -61,6 +61,7 @@ public class tester
 			}
 			else if(menuInput.equals("5")) {
 				//prints recommendations thorhghosaodf output class
+				output.printrecommendation();
 			}
 			else if(menuInput.equals("6")) {
 				

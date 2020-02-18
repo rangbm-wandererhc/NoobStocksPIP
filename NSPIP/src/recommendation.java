@@ -1,89 +1,32 @@
-
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 public class recommendation {
 
-	public static void main(String[] args) {
-		
-		//most actives
-		System.out.println("Most actives");
-		ArrayList<ArrayList> mostactives = new ArrayList<ArrayList>();
-		ArrayList<String> activecompany = new ArrayList<String>();
-		ArrayList<String> activeprice = new ArrayList<String>();
-		ArrayList<String> activechange = new ArrayList<String>();
-		ArrayList<String> activeperchange = new ArrayList<String>();
-		mostactives = mostactives();
-		activecompany = mostactives.get(0);		
-		activeprice = mostactives.get(1);		
-		activechange = mostactives.get(2);		
-		activeperchange = mostactives.get(3);	
-		
-		for(int i = 0 ; i<activecompany.size(); i++) {
-			System.out.printf("%s \t",activecompany.get(i));
-			System.out.printf("%s \t",activeprice.get(i));
-			System.out.printf("%s \t",activechange.get(i));
-			System.out.printf("%s \t",activeperchange.get(i));
-			System.out.println();
-		}
-		
-		//top gainers
-		System.out.println("Top Gainers");
-		ArrayList<ArrayList> gainers = new ArrayList<ArrayList>();
-		ArrayList<String> gaincompany = new ArrayList<String>();
-		ArrayList<String> gainprice = new ArrayList<String>();
-		ArrayList<String> gainchange = new ArrayList<String>();
-		ArrayList<String> gainperchange = new ArrayList<String>();
-		gainers = gainers();
-		gaincompany = gainers.get(0);		
-		gainprice = gainers.get(1);		
-		gainchange = gainers.get(2);		
-		gainperchange = gainers.get(3);	
-		
-		for(int i = 0 ; i<gaincompany.size(); i++) {
-			System.out.printf("%s \t",gaincompany.get(i));
-			System.out.printf("%s \t",gainprice.get(i));
-			System.out.printf("%s \t",gainchange.get(i));
-			System.out.printf("%s \t",gainperchange.get(i));
-			System.out.println();
-		}
-		
-		//top losers
-		System.out.println("Top Losers");
-		ArrayList<ArrayList> losers = new ArrayList<ArrayList>();
-		ArrayList<String> losecompany = new ArrayList<String>();
-		ArrayList<String> loseprice = new ArrayList<String>();
-		ArrayList<String> losechange = new ArrayList<String>();
-		ArrayList<String> loseperchange = new ArrayList<String>();
-		losers = losers();
-		losecompany = losers.get(0);		
-		loseprice = losers.get(1);		
-		losechange = losers.get(2);		
-		loseperchange = losers.get(3);	
-		
-		for(int i = 0 ; i<losecompany.size(); i++) {
-			System.out.printf("%s \t",losecompany.get(i));
-			System.out.printf("%s \t",loseprice.get(i));
-			System.out.printf("%s \t",losechange.get(i));
-			System.out.printf("%s \t",loseperchange.get(i));
-			System.out.println();
-		}
-	}
+
 	public static ArrayList<ArrayList> mostactives(){
 		
 		//chromedriver variable
 		String chromePath = "chromedriver79.exe";
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		
+		options.addArguments("--silent");
 		System.setProperty("webdriver.chrome.driver", chromePath);
+		
+		System.setProperty("webdriver.chrome.silentOutput", "true"); //disable logging
+		java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
+		
 		WebDriver driver = new ChromeDriver(options);
+		
+
 		
 		driver.get("https://money.cnn.com/data/hotstocks/");
 		ArrayList<String> company = new ArrayList<String>();
@@ -133,12 +76,11 @@ public class recommendation {
 		
 		//chromedriver variable
 		String chromePath = "chromedriver79.exe";
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		
-		System.setProperty("webdriver.chrome.driver", chromePath);
 		WebDriver driver = new ChromeDriver(options);
+		
+		
 		driver.get("https://money.cnn.com/data/hotstocks/");
 		ArrayList<String> company = new ArrayList<String>();
 		ArrayList<String> price = new ArrayList<String>();
@@ -183,12 +125,11 @@ public class recommendation {
 		
 		//chromedriver variable
 		String chromePath = "chromedriver79.exe";
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
-		
-		System.setProperty("webdriver.chrome.driver", chromePath);
 		WebDriver driver = new ChromeDriver(options);
+		
+		
 		driver.get("https://money.cnn.com/data/hotstocks/");
 		ArrayList<String> company = new ArrayList<String>();
 		ArrayList<String> price = new ArrayList<String>();
