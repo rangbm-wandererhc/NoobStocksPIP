@@ -28,6 +28,7 @@ public class output
 		System.out.printf("%-12s %-12s %-12s %-6s\n", "Mkt cap: ", find.getXpath(7), "52=wk low: ", find.getXpath(12));
 		System.out.printf("%-12s %-12s\n\n", "P/E ratio: ", find.getXpath(8));
 		System.out.println("==================================================================");
+		find.close();
 	}
 	
 	// no parameter
@@ -56,13 +57,11 @@ public class output
 		circulatingsupply = crypto.get(6);	
 		volume = crypto.get(7);	
 
-		System.out.printf("%-45s %12s %20s %25s %30s %45s %55s %65s\n", "currency", "Price", "Change", "Percent Change", "Last Updated", "Market Cap", "Circulating Supply", "Volume");
-		System.out.println("============================================================================================================");
-		System.out.println("Most actives: ");
-		for(int i = 0 ; i<currency.size(); i++) {
-			System.out.printf("%-45s %12s %20s %25s %30s %45s %55s %65s \n", currency.get(i), price.get(i), change.get(i), perchange.get(i),lastupdated.get(i),marketcap.get(i),circulatingsupply.get(i), volume.get(i) );
-			
-		}
+		System.out.printf("%22s %20s %20s %20s %20s %20s %20s \n", "Currency", "Price", "Change", "Percent Change", "Last Updated", "Market Cap", "Circulating Supply");
+		System.out.println("=====================================================================================================================================================");
+		for(int i = 0 ; i< currency.size(); i++) {
+			System.out.printf("%1s %20s %20s %20s %20s %20s %20s %20s \n", currency.get(i).trim(), price.get(i).trim(), change.get(i).trim(), perchange.get(i).trim(), lastupdated.get(i).trim(), marketcap.get(i).trim(), circulatingsupply.get(i).trim(), volume.get(i).trim());
+		}	
 	}
 	
 	//term as parameter
