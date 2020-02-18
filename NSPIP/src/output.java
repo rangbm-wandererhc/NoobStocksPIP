@@ -66,7 +66,19 @@ public class output
 	
 	//term as parameter
 	public static void printlearningcenter() {
-		
+		learningcenter learn = new learningcenter();
+		boolean cont = true;
+		while(cont)
+		{
+			String input = learn.choose();
+			String ret = learn.chooseTopic(input);
+			if(ret.equals("false"))
+			{
+				cont = false;
+			}
+			else
+				System.out.println("\n"+ ret);
+		}
 	}
 	
 	//no parameter
