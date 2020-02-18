@@ -32,7 +32,37 @@ public class output
 	
 	// no parameter
 	public static void printcrypt() {
+		System.out.print("\nLoading...\n\n");
 		
+		//Cryptocurrency
+		ArrayList<ArrayList> crypto = new ArrayList<ArrayList>();
+		ArrayList<String> currency = new ArrayList<String>();
+		ArrayList<String> price = new ArrayList<String>();
+		ArrayList<String> change = new ArrayList<String>();
+		ArrayList<String> perchange = new ArrayList<String>();
+		ArrayList<String> lastupdated = new ArrayList<String>();
+		ArrayList<String> marketcap = new ArrayList<String>();
+		ArrayList<String> circulatingsupply = new ArrayList<String>();
+		ArrayList<String> volume = new ArrayList<String>();
+		
+		crypto = crypt.cryptocurrency();
+		
+		currency = crypto.get(0);		
+		price = crypto.get(1);		
+		change = crypto.get(2);		
+		perchange = crypto.get(3);	
+		lastupdated = crypto.get(4);	
+		marketcap = crypto.get(5);	
+		circulatingsupply = crypto.get(6);	
+		volume = crypto.get(7);	
+
+		System.out.printf("%-45s %12s %20s %25s %30s %45s %55s %65s\n", "currency", "Price", "Change", "Percent Change", "Last Updated", "Market Cap", "Circulating Supply", "Volume");
+		System.out.println("============================================================================================================");
+		System.out.println("Most actives: ");
+		for(int i = 0 ; i<currency.size(); i++) {
+			System.out.printf("%-45s %12s %20s %25s %30s %45s %55s %65s \n", currency.get(i), price.get(i), change.get(i), perchange.get(i),lastupdated.get(i),marketcap.get(i),circulatingsupply.get(i), volume.get(i) );
+			
+		}
 	}
 	
 	//term as parameter

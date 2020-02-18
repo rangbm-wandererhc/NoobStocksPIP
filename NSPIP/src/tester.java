@@ -59,6 +59,7 @@ public class tester
 			}
 			else if(menuInput.equals("4")) {
 				//prints cryptocurrency values through output class
+				output.printcrypt();
 			}
 			else if(menuInput.equals("5")) {
 				//prints recommendations thorhghosaodf output class
