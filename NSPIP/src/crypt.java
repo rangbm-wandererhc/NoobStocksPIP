@@ -1,3 +1,11 @@
+/**
+ * Program to retrieve stock data from google
+ * Project Name: SPIP
+ * 
+ * @author Daniel Park, Harang Kim
+ * @version 2/16/2020
+ */
+
 import java.util.ArrayList;
 import java.util.logging.Level;
 
