@@ -2,7 +2,7 @@
  * Program to retrieve stock data from google
  * Project Name: SPIP
  * 
- * @author Your Mom
+ * @author Daniel Park, Harang Kim
  * @version 2/16/2020
  */
 
@@ -12,12 +12,13 @@ import java.util.Scanner;
 
 public class tester
 {
-	public static String comp, menuInput;
+	public static String comp, menuInput, watchlistmode, company;
 	
 	public static void main(String[] args) throws IOException
 	{
 		//declare scanner and objects
 		Scanner in = new Scanner(System.in);
+		int loop = 0;
 		
 		//loop asks
 		boolean cont = true;
@@ -34,7 +35,14 @@ public class tester
 					+ "'5' for recommendations, \n"
 					+ "'6' to quit" );
 			System.out.print("\nInput: ");
-			menuInput = in.next();
+			if(loop == 0)
+			{
+				menuInput = in.nextLine();
+			}
+			else if(loop == 1)
+			{
+				menuInput = in.next();
+			}
 			
 			if(menuInput.equals("1"))
 			{
@@ -55,32 +63,28 @@ public class tester
 					System.out.println("'2' to add new stock");
 					System.out.println("'3' to delete your stock in the watchlist");
 					System.out.println("'4' to exit your Watchlist");
-					System.out.print("Input:");
+					System.out.print("Input: ");
 					
-					String watchlistmode = in.nextLine();
-		
+					watchlistmode = in.nextLine();
+					
 					if(watchlistmode.equals("1")) {
 						 output.printwatchlist_stocksinfo();
 					}
 					else if(watchlistmode.equals("2")) {
-						System.out.println("Please enter the company you want to add");
-						System.out.print("Input: ");
-						String company = in.nextLine();
+						System.out.print("\nPlease enter the company you want to add: ");
+						company = in.nextLine();
 						watchlist.add(company);
 					}
-//					else if(watchlistmode.equals("3")) {
-//						System.out.println("Please enter the company you want to delete");
-//						System.out.print("Input: ");
-//						String company = in.nextLine();
-//						watchlist.delete(company);
-//					}
 					else if(watchlistmode.equals("3")) {
+						System.out.println("Please enter the company you want to delete");
+						System.out.print("Input: ");
+						company = in.nextLine();
+						watchlist.delete(company);
+					}
+					else if(watchlistmode.equals("4")) {
 						wathclistcont = false;
 					}
-					// else if you want to see your watchlist
-						//call output class
 				}
-				
 			}
 			else if(menuInput.equals("3")) {
 				output.printlearningcenter();
@@ -95,8 +99,7 @@ public class tester
 			else if(menuInput.equals("6")) {
 				break;
 			}
-			//search menu
-			
+			loop = 1;
 		}			
 	}
 }
