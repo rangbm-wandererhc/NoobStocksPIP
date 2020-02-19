@@ -5,9 +5,10 @@ import java.util.*;
  * Program to retrieve stock data from google
  * Project Name: SPIP
  * 
- * @author Your Mom
+ * @author Daniel Park, Harang Kim
  * @version 2/16/2020
  */
+
 
 public class output
 {
@@ -153,9 +154,9 @@ public class output
 	//no parameter
 	public static void printwatchlist() throws IOException{
 		ArrayList<String> companylist = watchlist.list();
-		System.out.println("\nYour current Watchlist\n");
+		System.out.println("\nYour current Watchlist: \n");
 		for(int i = 0; i<companylist.size(); i++) {
-			System.out.print((i+1)+".");
+			System.out.print((i+1)+". ");
 			System.out.println(companylist.get(i));
 		}
 	}
