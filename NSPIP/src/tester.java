@@ -42,15 +42,11 @@ public class tester
 				comp = in.nextLine();
 				comp = in.nextLine();
 				
-				//print out basic data
 				output.printstockcalc(comp);
-				
-				//watchlist
 				
 			}
 			else if(menuInput.equals("2"))
 			{				
-				
 				// else if you want to see your watchlist
 					//call output class
 			}
@@ -65,7 +61,7 @@ public class tester
 				output.printrecommendation();
 			}
 			else if(menuInput.equals("6")) {
-				
+				break;
 			}
 			//search menu
 			
