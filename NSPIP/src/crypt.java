@@ -98,4 +98,3 @@ public class crypt {
 		return splitednumandtext;
 	}
 }
-

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.IOException;
 import java.util.*;
 /**
  * Program to retrieve stock data from google
@@ -13,21 +14,28 @@ public class output
 	//name of company as parameter
 	public static void printstockcalc(String name) {
 		
+		System.out.println("\nLoading ...\n");
+		
 		stockcalc find = new stockcalc();
 		find.search(name);
-		
-		System.out.println("==================================================================");
-		System.out.println("\nCompany: " + find.getXpath(0));
-		System.out.print("Value: " + find.getXpath(1));
-		System.out.print("  USD: " + find.getXpath(2));
-		System.out.println(" " + find.getXpath(3) + "\n");
-			
-		System.out.printf("%-12s %-12s %-12s %-6s\n","Open: ", find.getXpath(4), "Div yield: ", find.getXpath(9));
-		System.out.printf("%-12s %-12s %-12s %-6s\n", "High: ", find.getXpath(5), "Prev close: ", find.getXpath(10));
-		System.out.printf("%-12s %-12s %-12s %-6s\n", "Low: ", find.getXpath(6), "52-wk high: ", find.getXpath(11));
-		System.out.printf("%-12s %-12s %-12s %-6s\n", "Mkt cap: ", find.getXpath(7), "52=wk low: ", find.getXpath(12));
-		System.out.printf("%-12s %-12s\n\n", "P/E ratio: ", find.getXpath(8));
-		System.out.println("==================================================================");
+		if(find.getXpath(0).equals("N/A")) {
+			System.out.println("Company not found. Please enter valid company.");
+		}
+		else {
+			System.out.println("==================================================================");
+			System.out.println("\nCompany: " + find.getXpath(0));
+			System.out.print("Value: " + find.getXpath(1));
+			System.out.print("  USD: " + find.getXpath(2));
+			System.out.println(" " + find.getXpath(3) + "\n");
+				
+			System.out.printf("%-12s %-12s %-12s %-6s\n","Open: ", find.getXpath(4), "Div yield: ", find.getXpath(9));
+			System.out.printf("%-12s %-12s %-12s %-6s\n", "High: ", find.getXpath(5), "Prev close: ", find.getXpath(10));
+			System.out.printf("%-12s %-12s %-12s %-6s\n", "Low: ", find.getXpath(6), "52-wk high: ", find.getXpath(11));
+			System.out.printf("%-12s %-12s %-12s %-6s\n", "Mkt cap: ", find.getXpath(7), "52=wk low: ", find.getXpath(12));
+			System.out.printf("%-12s %-12s\n\n", "P/E ratio: ", find.getXpath(8));
+			System.out.println("==================================================================");
+		}
+
 		find.close();
 	}
 	
@@ -143,7 +151,18 @@ public class output
 	}
 	
 	//no parameter
-//	public static void printwatchlist{
-//		
-//	}
+	public static void printwatchlist() throws IOException{
+		ArrayList<String> companylist = watchlist.list();
+		System.out.println("\nYour current Watchlist\n");
+		for(int i = 0; i<companylist.size(); i++) {
+			System.out.print((i+1)+".");
+			System.out.println(companylist.get(i));
+		}
+	}
+	public static void printwatchlist_stocksinfo() throws IOException {
+		ArrayList<String> companylist = watchlist.list();
+		for(int i =0; i<companylist.size(); i++) {
+			printstockcalc(companylist.get(i));
+		}
+	}
 }

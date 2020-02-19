@@ -14,7 +14,7 @@ public class tester
 {
 	public static String comp, menuInput;
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		//declare scanner and objects
 		Scanner in = new Scanner(System.in);
@@ -47,8 +47,40 @@ public class tester
 			}
 			else if(menuInput.equals("2"))
 			{				
-				// else if you want to see your watchlist
-					//call output class
+				boolean wathclistcont = true;
+				while(wathclistcont) {
+					output.printwatchlist();
+					System.out.println("\nPlease enter one of the following options: \n");
+					System.out.println("'1' to pull up your stocks information");
+					System.out.println("'2' to add new stock");
+					System.out.println("'3' to delete your stock in the watchlist");
+					System.out.println("'4' to exit your Watchlist");
+					System.out.print("Input:");
+					
+					String watchlistmode = in.nextLine();
+		
+					if(watchlistmode.equals("1")) {
+						 output.printwatchlist_stocksinfo();
+					}
+					else if(watchlistmode.equals("2")) {
+						System.out.println("Please enter the company you want to add");
+						System.out.print("Input: ");
+						String company = in.nextLine();
+						watchlist.add(company);
+					}
+//					else if(watchlistmode.equals("3")) {
+//						System.out.println("Please enter the company you want to delete");
+//						System.out.print("Input: ");
+//						String company = in.nextLine();
+//						watchlist.delete(company);
+//					}
+					else if(watchlistmode.equals("3")) {
+						wathclistcont = false;
+					}
+					// else if you want to see your watchlist
+						//call output class
+				}
+				
 			}
 			else if(menuInput.equals("3")) {
 				output.printlearningcenter();
