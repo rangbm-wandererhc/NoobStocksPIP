@@ -106,6 +106,7 @@ public class output
 		}
 		
 		//top gainers
+		System.out.print("\nLoading...\n\n");
 		System.out.println("\nTop Gainers:");
 		ArrayList<ArrayList> gainers = new ArrayList<ArrayList>();
 		ArrayList<String> gaincompany = new ArrayList<String>();
@@ -123,6 +124,7 @@ public class output
 		}
 		
 		//top losers
+		System.out.print("\nLoading...\n\n");
 		System.out.println("\nTop Losers: ");
 		ArrayList<ArrayList> losers = new ArrayList<ArrayList>();
 		ArrayList<String> losecompany = new ArrayList<String>();
