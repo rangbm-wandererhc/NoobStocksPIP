@@ -12,7 +12,7 @@ public class crypt {
 	public static ArrayList<ArrayList> cryptocurrency() {
 		String chromePath = "chromedriver79.exe";
 		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("headless");
+		options.addArguments("headless");
 		options.addArguments("--silent");
 		System.setProperty("webdriver.chrome.driver", chromePath);
 		
@@ -35,7 +35,7 @@ public class crypt {
 		ArrayList<String> xpath = new ArrayList<String>();
 		
 		for(int i = 1; i<=20; i++) {
-			String path = "	//*[@id=\"8554835\"]/div[4]/table/tbody/tr["+String.valueOf(i)+"]";
+			String path = "	//div[4]/table/tbody/tr["+String.valueOf(i)+"]";
 			xpath.add(path);
 		}
 		for(String e: xpath) {
