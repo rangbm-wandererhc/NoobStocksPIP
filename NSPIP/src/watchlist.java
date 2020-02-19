@@ -2,9 +2,10 @@
  * Program to retrieve stock data from google
  * Project Name: SPIP
  * 
- * @author Your Mom
+ * @author Daniel Park, Harang Kim
  * @version 2/16/2020
  */
+
 
 
 import java.io.BufferedReader;
@@ -38,33 +39,37 @@ public class watchlist{
 	        
 	        return companylist;
 		}
+		
 		public static void add(String comp) throws IOException {
 			PrintWriter pw = new PrintWriter(new FileWriter("watchlist.txt",true));
-			pw.println(comp);
+			if(comp.trim().length() > 0)
+			{
+				pw.println(comp.trim());
+				pw.close();
+			}
+		}	
+		
+		public static void delete(String del) throws IOException {
+			ArrayList<String> companylist = new ArrayList<String>();
+        	BufferedReader br = new BufferedReader(new FileReader("watchlist.txt"));
+        	while(true) {
+        		String line = br.readLine();
+        		if (line==null) {
+        			break;
+        		}
+        		companylist.add(line);
+        	}
+        	br.close();
+			
+        	File fil = new File("watchlist.txt");
+        	fil.delete();
+        	
+			PrintWriter pw = new PrintWriter(new FileWriter("watchlist.txt",true));
+			for(String n : companylist)
+			{
+				if(!n.equalsIgnoreCase(del))
+					pw.println(n);
+			}
 			pw.close();
-		}
-
-
-		
-		
+		}	
 }
-//		}
-//		public static void add() {
-//	        PrintWriter pw = new PrintWriter("watchlist.txt");
-//
-//		}
-//	    public static void ma{in(String[] args) throws IOException {
-//	        PrintWriter pw = new PrintWriter("watchlist.txt");
-//	        for(int i=1; i<11; i++) {
-//	            pw.println(data);
-//	        }
-//	        pw.close();
-//
-//
-//	        PrintWriter pw2 = new PrintWriter(new FileWriter("c:/out.txt", true));
-//	        for(int i=11; i<21; i++) {
-//	            pw2.println(data);
-//	        }
-//	        pw2.close();
-	    
-	
